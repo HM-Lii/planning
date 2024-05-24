@@ -1,0 +1,8 @@
+<launch>
+  <node name="RecPath" pkg="planning" type="RecPath" output="screen">
+    <param name="mode" value="2" />
+  </node>
+  <!-- <node pkg="rviz" type="rviz" name="rviz" output="screen"
+     args="-d $(find planning)/rviz/RecPath.rviz" required="true">
+  </node> -->
+</launch>
