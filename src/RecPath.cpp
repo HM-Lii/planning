@@ -171,11 +171,14 @@ class PathRecorder {
       ROS_ERROR("Received float gps message,please modify the gps signal!");
       return;
     }
-    if ((!initialized_) && (count != 10)) {
-      ROS_INFO("initializing...");
-      count++;
-      return;
-    } else {
+    if (!initialized_) {
+      if (count != 10) {
+        ROS_INFO("initializing...");
+        count++;
+        return;
+      }
+      local_projector_.Reset(msg->latitude, msg->longitude, msg->altitude);
+      ROS_INFO("initialize finish!");
       latest_point_ = Gps_Pt(current_fix_);
       initialized_ = true;
     }
