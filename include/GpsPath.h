@@ -10,8 +10,8 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Transform.h>
 
-#include <GeographicLib/Geocentric.hpp>
-#include <GeographicLib/LocalCartesian.hpp>
+#include <Geocentric.hpp>
+#include <LocalCartesian.hpp>
 
 #include <Eigen/Eigen>
 #include <boost/foreach.hpp>
