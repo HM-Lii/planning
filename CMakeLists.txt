@@ -45,10 +45,10 @@ include_directories("${PROJECT_SOURCE_DIR}/include")
 
 add_executable(RecPath src/RecPath.cpp  
                     )
-target_link_libraries(RecPath ${catkin_LIBRARIES} ${rosbag_LIBRARIES} libGeographiccc)
+target_link_libraries(RecPath ${catkin_LIBRARIES} ${rosbag_LIBRARIES} libGeographicc)
 add_executable(GpsPath src/GpsPath.cpp  
                     )
-target_link_libraries(GpsPath ${catkin_LIBRARIES} ${rosbag_LIBRARIES} libGeographiccc)
+target_link_libraries(GpsPath ${catkin_LIBRARIES} ${rosbag_LIBRARIES} libGeographicc)
 add_executable(pure_persuit src/pure_persuit.cpp  
                     )
 target_link_libraries(pure_persuit ${catkin_LIBRARIES} ${rosbag_LIBRARIES})
