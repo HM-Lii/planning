@@ -8,7 +8,7 @@ int main(int argc, char** argv) {
   ros::NodeHandle nh;
   std::shared_ptr<GpsPath> gp(new GpsPath(nh));
 
-  ros::Rate rate(1);
+  ros::Rate rate(0.5);
 
   while (ros::ok()) {
     ros::spinOnce();  // 处理ROS消息回调

@@ -42,6 +42,9 @@ private:
     void findNearestAndPreviewPoints(const geometry_msgs::Pose &currentPoint,
                                      geometry_msgs::Pose &nearestPoint,
                                      geometry_msgs::PoseStamped &previewPoint);
+    void findNearestAndPreviewPoints_(const geometry_msgs::Pose &currentPoint,
+                                      geometry_msgs::Pose &nearestPoint,
+                                      geometry_msgs::PoseStamped &previewPoint);
     float calculateDeltaAngle(float a, float b);
 
     ros::Publisher vel_pub_, preview_pose_pub_;
@@ -55,7 +58,7 @@ private:
     bool if_obs=false;
     bool enable_gps=true;
     bool enableObstacleAvoidance = false;
-    const double NEAREST_DIS_INIT = 1000000;
+    int lastNearestIndex=0;
     const double SLOW_DOWN_DISTANCE = 0.6;
     const double STOP_DISTANCE = 0.1;
     const double ANGLE_THRESHOLD = 1e-3;

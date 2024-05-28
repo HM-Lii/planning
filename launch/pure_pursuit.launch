@@ -1,0 +1,10 @@
+<launch>
+  <node name="pure_persuit" pkg="planning" type="pure_persuit" output="screen">
+    <param name="preview_distance" value="2.0" />
+    <param name="unit_length" value="0.1" />
+    <param name="velocity" value="0.3" />
+  </node>
+  <!-- <node pkg="rviz" type="rviz" name="rviz" output="screen"
+     args="-d $(find planning)/rviz/GpsPath.rviz" required="true">
+  </node> -->
+</launch>
