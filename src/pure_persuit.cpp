@@ -5,6 +5,7 @@ using namespace std;
 PurePersuit::PurePersuit(ros::NodeHandle& nh_) : enableObstacleAvoidance(false){
   vel_pub_ = nh_.advertise<geometry_msgs::Twist>("/cmd_vel", 20);
   preview_pose_pub_= nh_.advertise<geometry_msgs::PoseStamped>("/preview_pose", 20);
+  cmd_work_pub_= nh_.advertise<std_msgs::Int8>("/cmd_work", 20);
   if(enable_gps){
     heading_sub_ = nh_.subscribe("/heading", 20, &PurePersuit::headingCallback, this);
   }
@@ -68,7 +69,10 @@ void PurePersuit::poseCallback(const nav_msgs::Odometry::ConstPtr& currentWaypoi
     cout << "close to the end, slowing down!!" << endl;
     if_reach = false;
   } else {
-    publishVelocityMessage(0, 0);// 停止
+    publishVelocityMessage(0, 0);  // 停止
+    std_msgs::Int8 msg;
+    msg.data = 1;
+    cmd_work_pub_.publish(msg);
     cout << "reach the goal!!" << endl;
   }
 }

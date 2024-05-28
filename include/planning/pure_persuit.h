@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 
+#include <std_msgs/Int8.h>
 #include <geometry_msgs/Twist.h>
 #include <nav_msgs/Path.h>
 #include <nav_msgs/Odometry.h>
@@ -47,7 +48,7 @@ private:
                                       geometry_msgs::PoseStamped &previewPoint);
     float calculateDeltaAngle(float a, float b);
 
-    ros::Publisher vel_pub_, preview_pose_pub_;
+    ros::Publisher vel_pub_, preview_pose_pub_,cmd_work_pub_;
     ros::Subscriber pose_sub_,path_sub_,heading_sub_,fix_sub_;
     nav_msgs::Path ref_path;
     int pointNum = 1,check_count = 0;
